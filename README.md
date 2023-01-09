@@ -1,6 +1,6 @@
 # Implicit Learning of a Kinematically Complex Multi-Articular Motor Skill
 
-This repository contains the experiment code for Solomon et al. (2022), a study investigating if a complex movement can be learned implicitly.
+This repository contains the experiment code for Solomon et al. (2023), a study investigating if a complex movement can be learned implicitly.
 
 This study uses [TraceLab](https://github.com/LBRF/TraceLab).
 
