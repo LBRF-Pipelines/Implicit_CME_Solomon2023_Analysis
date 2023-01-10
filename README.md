@@ -9,7 +9,7 @@ This study uses [TraceLab](https://github.com/LBRF/TraceLab).
 All dependencies for these scripts can be installed by running the following line:
 
 ```r
-install.packages(c("tidyverse", "TSEntropies", "vegan", "dtw","brms","tidybayes","emmeans","parametes","modelr"))
+install.packages(c("tidyverse", "TSEntropies", "dtw","brms","tidybayes","emmeans","parametes","modelr"))
 ```
 
 The scripts were run in R 4.1 for publication. They may work with older versions of R but are not guaranteed to function correctly.
