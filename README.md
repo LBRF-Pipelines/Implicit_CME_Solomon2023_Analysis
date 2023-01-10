@@ -31,5 +31,5 @@ source('./_Scripts/1_preprocessing.R') # imports and preprocesses data
 source('./_Scripts/2_processing.R') # generates descriptives and runs statistical models
 ```
 
-Running the processing script will run the preprocessing script and the import script, so in most cases you just want to run the thira line.
+Running the processing script will run the preprocessing script and the import script, so in most cases you just want to run the third line.
 
