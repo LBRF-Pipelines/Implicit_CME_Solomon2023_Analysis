@@ -19,8 +19,8 @@ The scripts were run in R 4.1 for publication. They may work with older versions
 
 The raw data for the mproject can be found on the [Open Science Framework](https://osf.io/v45pq/).
 
-1. Place all task data from OSF (`*.txt`)  in `_Data/task/`.
-2. Place all figure data from OSF (`*.zip`)  in `_Data/figure/`.
+1. Place all task data (`*.txt`) from OSF (`task.zip`) in `_Data/task/`.
+2. Place all the participant directories from OSF (`figure.zip`) in `_Data/figure/`.
 2. Place the implicit knowledge test results from OSF (`*.csv`) in `_Data/`.
 3. Open a new R session and set the working directory to the root `TraceLabAnalysis/` folder (or whatever you've renamed it to) using `setwd()` or the RStudio menu.
 4. Run one of the following commands in the R terminal:
