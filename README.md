@@ -7,7 +7,7 @@ This study uses [TraceLab](https://github.com/LBRF/TraceLab).
 
 ## Experiment Code
 
-The experiment code used to collect the data is found in the `Tracelab_Program` directory. The code is not functional as Tracelab has undergone several updates since the data was collected for the project. This directory is strictly for documentation purposes. For a funcational version of the program, please visit [TraceLab](https://github.com/LBRF/TraceLab).
+The experiment code used to collect the data is found in the `Tracelab_Program` directory. The code is not functional as Tracelab has undergone several updates since the data was collected for the project. This directory is strictly for documentation purposes. For a functional version of the program, please visit [TraceLab](https://github.com/LBRF/TraceLab).
 
 
 ## Analysis Requirements
