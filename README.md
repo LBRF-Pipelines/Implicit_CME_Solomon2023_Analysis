@@ -1,10 +1,16 @@
 # Implicit Learning of a Kinematically Complex Multi-Articular Motor Skill
 
-This repository contains the experiment code for Solomon et al. (2023), a study investigating if a complex movement can be learned implicitly.
+This repository contains the experiment anad analysis code for Solomon et al. (2023), a study investigating if a complex movement can be learned implicitly.
 
 This study uses [TraceLab](https://github.com/LBRF/TraceLab).
 
-## Requirements
+
+## Experiment Code
+
+The experiment code used to collect the data is found in the `Tracelab_Program` directory. The code is not functional as Tracelab has undergone several updates since the data was collected for the project. This directory is strictly for documentation purposes. For a funcational version of the program, please visit [TraceLab](https://github.com/LBRF/TraceLab).
+
+
+## Analysis Requirements
 
 All dependencies for these scripts can be installed by running the following line:
 
@@ -15,14 +21,14 @@ install.packages(c("tidyverse", "TSEntropies", "dtw","brms","tidybayes","emmeans
 The scripts were run in R 4.1 for publication. They may work with older versions of R but are not guaranteed to function correctly.
 
 
-## Usage
+## Analysis Code Usage
 
 The raw data for the mproject can be found on the [Open Science Framework](https://osf.io/v45pq/).
 
-1. Place the implicit knowledge test results from OSF (`*.csv`) in a created directory `_Data/`.
-2. Place all task data (`*.txt`) from OSF (`task.zip`) in a created directory `_Data/task/`.
-3. Place all the participant directories from OSF (`figure.zip`) in a created directory `_Data/figure/`.
-5. Open a new R session and set the working directory to the root `TraceLabAnalysis/` folder (or whatever you've renamed it to) using `setwd()` or the RStudio menu.
+1. Place the implicit knowledge test results from OSF (`*.csv`) in a created directory `Tracelab_Analysis/_Data/`.
+2. Place all task data (`*.txt`) from OSF (`task.zip`) in a created directory `Tracelab_Analysis/_Data/task/`.
+3. Place all the participant directories from OSF (`figure.zip`) in a created directory `Tracelab_Analysis/_Data/figure/`.
+5. Open a new R session and set the working directory to the root `TraceLab_Analysis/` folder (or whatever you've renamed it to) using `setwd()` or the RStudio menu.
 6. Run one of the following commands in the R terminal:
 
 ```r
