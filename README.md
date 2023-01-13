@@ -25,10 +25,10 @@ The scripts were run in R 4.1 for publication. They may work with older versions
 The raw data for the project can be found on the [Open Science Framework](https://osf.io/v45pq/).
 
 1. Place the implicit knowledge test results from OSF (`*.csv`) in a created directory `Tracelab_Analysis/_Data/`.
-2. Place all task data (`*.txt`) from OSF (`task.zip`) in a created directory `Tracelab_Analysis/_Data/task/`.
-3. Place all the participant directories from OSF (`figure.zip`) in a created directory `Tracelab_Analysis/_Data/figure/`.
-5. Open a new R session and set the working directory to the root `TraceLab_Analysis/` folder (or whatever you've renamed it to) using `setwd()` or the RStudio menu.
-6. Run one of the following commands in the R terminal:
+2. Extract the (`task.zip`) from OSF in the created directory `Tracelab_Analysis/_Data/`.
+3. Extract the (`figure.zip`) from OSF in the created directory `Tracelab_Analysis/_Data/`.
+4. Open a new R session and set the working directory to the root `TraceLab_Analysis/` folder (or whatever you've renamed it to) using `setwd()` or the RStudio menu.
+5. Run one of the following commands in the R terminal:
 
 ```r
 source('./_Scripts/0_import.R') # imports task and figure data
