@@ -1,4 +1,4 @@
-# Implicit Learning of a Kinematically Complex Multi-Articular Motor Skill
+# Implicit Learning of a Kinematically Complex Multi-Articular Motor Skill Analysis
 
 This repository contains the experiment anad analysis code for Solomon et al. (2023), a study investigating if a complex movement can be learned implicitly.
 
@@ -7,8 +7,7 @@ This study uses [TraceLab](https://github.com/LBRF/TraceLab).
 
 ## Experiment Code
 
-The experiment code used to collect the data is found in the `Tracelab_Program` directory. The code is not functional as Tracelab has undergone several updates since the data was collected for the project. This directory is strictly for documentation purposes. For a functional version of the program, please visit [TraceLab](https://github.com/LBRF/TraceLab).
-
+The experiment code used to collect the data is found in the [Implicit_CME](https://github.com/LBRF-Projects/Implicit_CME_Solomon2023) repository.
 
 ## Analysis Requirements
 
