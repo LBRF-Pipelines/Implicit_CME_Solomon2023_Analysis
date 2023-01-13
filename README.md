@@ -36,7 +36,7 @@ source('./_Scripts/1_preprocessing.R') # imports and preprocesses data
 source('./_Scripts/2_processing.R') # generates descriptives and runs statistical models
 ```
 
-Running the processing script will run the preprocessing script and the import script, so in most cases you just want to run the third line.
+Running the processing script will run the preprocessing and the import scripts, so in most cases you just want to run the third line.
 
 The code is an exact copy used for the publication. Future commits will be made to optimize the code's performance.
 
