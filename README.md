@@ -7,7 +7,7 @@ This study uses [TraceLab](https://github.com/LBRF/TraceLab).
 
 ## Experiment Code
 
-The experiment code used to collect the data is found in the [Implicit_CME](https://github.com/LBRF-Projects/Implicit_CME_Solomon2023) repository.
+The experiment code used to collect the data is found in the [Implicit_CME](https://github.com/LBRF-Projects/Implicit_CME_Solomon2023_Experiment) repository.
 
 ## Analysis Requirements
 
