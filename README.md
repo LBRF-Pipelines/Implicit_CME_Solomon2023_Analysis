@@ -22,7 +22,7 @@ The scripts were run in R 4.1 for publication. They may work with older versions
 
 ## Analysis Code Usage
 
-The raw data for the mproject can be found on the [Open Science Framework](https://osf.io/v45pq/).
+The raw data for the project can be found on the [Open Science Framework](https://osf.io/v45pq/).
 
 1. Place the implicit knowledge test results from OSF (`*.csv`) in a created directory `Tracelab_Analysis/_Data/`.
 2. Place all task data (`*.txt`) from OSF (`task.zip`) in a created directory `Tracelab_Analysis/_Data/task/`.
