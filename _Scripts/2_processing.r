@@ -117,12 +117,12 @@ a3 <- subset(a2, abs(stimulus_mt - mt_clip) < 2)
 # Standardize / transform / factorize variables before modelling
 
 # pick outcome variable
-outcome_var='eqd_err_mean.y.y'
+outcome_var='dtw_proc_err_mean'
 #eqd_err_mean.x = PROC, eqd_err_mean.y = EQD, eqd_err_mean.x.x = EQD&PROC, dtw_err_mean = DTW, eqd_err_mean.y.y. = DTW&PROC
 
 #remove equidistant function that fails
-if(outcome_var %in% c('eqd_err_mean.y.y','eqd_err_mean.x.x')){
-  a4 <- filter(a3,!is.na(eqd_err_mean.y.y))
+if(outcome_var == c('dtw_proc_err_mean')){
+  a4 <- filter(a3,!is.na(dtw_proc_err_mean))
 }
 #transform
 a4 <- a4 %>%
@@ -131,7 +131,7 @@ a4 <- a4 %>%
   mutate(exposure=0:(n()-1),.before = 6) %>%
   group_by(id, session)
 
-a4$log_dtw_mean <- log(a4$eqd_err_mean.y.y)
+a4$log_dtw_mean <- log(a4$dtw_proc_err_mean)
 a4$log_stim_vel <- log(a4$real_length/(a4$stimulus_gt/1000))
 
 #standardize
@@ -154,7 +154,7 @@ makinStuffPretty <-   theme_classic() +
   theme(
     panel.border = element_blank(),
     axis.line = element_line(colour = "black"),
-    legend.position = "none",
+    #legend.position = "none",
     strip.background = element_blank(),
     panel.grid.major = element_blank(),
     panel.grid.minor = element_blank(),
@@ -163,7 +163,7 @@ makinStuffPretty <-   theme_classic() +
     axis.ticks = element_line(colour = "black",size = 1),
   )
 
-alldat <- ggplot(filter(a4,exposure<29),aes(y=eqd_err_mean.y.y,x=exposure+1,colour=learning_type))+
+alldat <- ggplot(filter(a4,exposure<29),aes(y=dtw_proc_err_mean,x=exposure+1,colour=learning_type))+
   #eqd_err_mean.x = PROC, eqd_err_mean.y = EQD, eqd_err_mean.x.x = EQD&PROC, dtw_err_mean = DTW, eqd_err_mean.y.y = DTW&PROC
   stat_summary(fun = mean,
                fun.min = function(x) mean(x) - sd(x), 
@@ -185,7 +185,7 @@ ggsave(filename="alldat.png",
 
 #plot first 5 trials
 
-first5 <- ggplot(subset(a4, exposure <5),aes(y=dtw_err_mean,x=exposure+1,colour=learning_type))+
+first5 <- ggplot(subset(a4, exposure <5),aes(y=dtw_proc_err_mean,x=exposure+1,colour=learning_type))+
   stat_summary(fun = mean,
                fun.min = function(x) mean(x) - sd(x), 
                fun.max = function(x) mean(x) + sd(x), 
@@ -248,7 +248,9 @@ speedXlearning <- ggplot(altmod_fitted, aes(x = stim_vel, y = shape_err,group = 
   xlab("Stimulus Animation Velocity (px/s)") +
   ylab("Mean Trajectory Error (px)") +
   scale_colour_manual(values = c("grey80","grey40","black")) +
-  makinStuffPretty
+  makinStuffPretty +
+  guides(color = guide_legend(order = 1),
+         fill = "none")
 
 show(speedXlearning)
 
@@ -282,7 +284,7 @@ altmod_fitted <- ungroup(a4) %>%
 compAll <- ggplot(altmod_fitted, aes(x = turnangle, y = shape_err)) +
   stat_lineribbon(colour="black",.width = .90, point_interval = median_qi,
                   fill=alpha(c("grey"), 0.25)) +
-  xlab("Sum of Turn Angles (rad)") +
+  xlab("Total Absolute Curvature (rad)") +
   ylab("Mean Trajectory Error (px)") +
   makinStuffPretty
 
@@ -340,14 +342,18 @@ speedXexpXlearning <- ggplot(altmod1_fitted, aes(x = stim_vel, y = shape_err,gro
   stat_lineribbon(.width = .90, point_interval = median_qi,show.legend = TRUE,
                   fill=alpha(c("grey"), 0.25)) +
   labs(group = "Trial Type", color = "Trial Type") +
-  xlab("Exposure") +
+  xlab("Stimulus Animation Velocity (px/s)") +
   ylab("Mean Trajectory Error (px)") +
-  facet_wrap(~exposure,nrow=1)+
+  facet_wrap(~exposure, 
+             nrow=1,
+             labeller = as_labeller(c("1" = "Exposure 1", "2" = "Exposure 2", "3" = "Exposure 3","4" = "Exposure 4", "5" = "Exposure 5")))+
   scale_colour_manual(values = c("grey80","grey40","black")) +
   makinStuffPretty +
   theme(
     axis.text.x = element_text(angle=90,vjust=.5)
-  )
+  ) +
+  guides(color = guide_legend(order = 1),
+         fill = "none")
 
 show(speedXexpXlearning)
 
@@ -379,7 +385,7 @@ altmod1_fitted <- ungroup(a5) %>%
 comp5 <- ggplot(altmod1_fitted, aes(x = turnangle, y = shape_err)) +
   stat_lineribbon(colour="black",.width = .90, point_interval = median_qi,
                   fill=alpha(c("grey"), 0.25)) +
-  xlab("Sum of Turn Angles (rad)") +
+  xlab("Total Absolute Curvature (rad)") +
   ylab("Mean Trajectory Error (px)") +
   makinStuffPretty
 
@@ -389,6 +395,6 @@ ggsave(filename="comp5.png",
        path="./_Vis/",
        plot=comp5,
        dpi=600,
-       width=30,
+       width=20,
        height=15,
        units="cm")
