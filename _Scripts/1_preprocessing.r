@@ -537,7 +537,7 @@ repeated_origins <- points %>%
 # Calculate useful metrics for data filtering and drop all repeated points
 
 learndat <- learned %>%
-  left_join(repeated_origins, by = c("id")) %>%
+  left_join(repeated_origins, by = c("id"), relationship = "many-to-many") %>%
   group_by(id, trial, num) %>%
   mutate(
     time = time - time[1], # ensure first time is 0.0
