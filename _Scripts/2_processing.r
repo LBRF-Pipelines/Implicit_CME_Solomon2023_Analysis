@@ -160,7 +160,7 @@ makinStuffPretty <-   theme_classic() +
     panel.grid.minor = element_blank(),
     text = element_text(size = 22),
     axis.text = element_text(colour = "black",size = 22),
-    axis.ticks = element_line(colour = "black",size = 1),
+    axis.ticks = element_line(colour = "black",linewidth = 1),
   )
 
 alldat <- ggplot(filter(a4,exposure<29),aes(y=dtw_proc_err_mean,x=exposure+1,colour=learning_type))+
