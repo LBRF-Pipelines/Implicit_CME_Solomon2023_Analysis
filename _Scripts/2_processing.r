@@ -170,8 +170,8 @@ alldat <- ggplot(filter(a4,exposure<29),aes(y=dtw_proc_err_mean,x=exposure+1,col
                fun.max = function(x) mean(x) + sd(x), 
                geom = "pointrange", position = position_dodge(0.5)) +
   makinStuffPretty +
-  scale_colour_manual(values = c("grey80","grey40","black")) +
-  labs(colour = "Learning Type", x="Exposure",y="Mean Trajectory Error (px)")
+  scale_colour_manual(labels = c("Explicit","Implicit","Random"),values = c("grey80","grey40","black")) +
+  labs(colour = "Trajectory Type", x="Exposure",y="Mean Trajectory Error (px)")
 
 show(alldat)
 
@@ -191,8 +191,8 @@ first5 <- ggplot(subset(a4, exposure <5),aes(y=dtw_proc_err_mean,x=exposure+1,co
                fun.max = function(x) mean(x) + sd(x), 
                geom = "pointrange", position = pd) +
   makinStuffPretty +
-  scale_colour_manual(values = c("grey80","grey40","black")) +
-  labs(colour = "Learning Type", x="Exposure",y="Mean Trajectory Error (px)")
+  scale_colour_manual(labels = c("Explicit","Implicit","Random"),values = c("grey80","grey40","black")) +
+  labs(colour = "Trajectory Type", x="Exposure",y="Mean Trajectory Error (px)")
 
 show(first5)
 
@@ -247,7 +247,7 @@ speedXlearning <- ggplot(altmod_fitted, aes(x = stim_vel, y = shape_err,group = 
                   fill=alpha(c("grey"), 0.25)) +
   xlab("Stimulus Animation Velocity (px/s)") +
   ylab("Mean Trajectory Error (px)") +
-  scale_colour_manual(values = c("grey80","grey40","black")) +
+  scale_colour_manual(name = "Trajectory Type", labels = c("Explicit","Implicit","Random"),values = c("grey80","grey40","black")) +
   makinStuffPretty +
   guides(color = guide_legend(order = 1),
          fill = "none")
@@ -347,10 +347,11 @@ speedXexpXlearning <- ggplot(altmod1_fitted, aes(x = stim_vel, y = shape_err,gro
   facet_wrap(~exposure, 
              nrow=1,
              labeller = as_labeller(c("1" = "Exposure 1", "2" = "Exposure 2", "3" = "Exposure 3","4" = "Exposure 4", "5" = "Exposure 5")))+
-  scale_colour_manual(values = c("grey80","grey40","black")) +
+  scale_colour_manual(name = "Trajectory Type", labels = c("Explicit","Implicit","Random"),values = c("grey80","grey40","black")) +
   makinStuffPretty +
   theme(
-    axis.text.x = element_text(angle=90,vjust=.5)
+    axis.text.x = element_text(angle=90,vjust=.5),
+    axis.title.x = element_text(vjust=-.25)    
   ) +
   guides(color = guide_legend(order = 1),
          fill = "none")
